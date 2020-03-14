@@ -7,6 +7,7 @@
     <Company>Dan Mannock</Company>
     <PackageTags>F#;FSharp;Functional Programming</PackageTags>
     <PackageDescription>Determine how intervals relate to each other.</PackageDescription>
+    <RepositoryUrl>https://github.com/dmannock/FsharpRampart</RepositoryUrl>
     <OutputType>dll</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
