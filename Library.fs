@@ -1,4 +1,4 @@
-module FsRampart
+﻿namespace FsharpRampart
 
 type Relation =
     | Before
@@ -18,6 +18,7 @@ type Relation =
 module Relation =
     let show (r: Relation) = sprintf "%A" r
 
+[<AutoOpen>]
 module Interval =
     type Interval<'a> = private Interval of 'a * 'a
 

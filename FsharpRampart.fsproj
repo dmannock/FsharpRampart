@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>FsharpRampart</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Dan Mannock</Authors>
+    <Company>Dan Mannock</Company>
+    <PackageTags>F#;FSharp;Functional Programming</PackageTags>
+    <PackageDescription>Determine how intervals relate to each other.</PackageDescription>
+    <OutputType>dll</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+</Project>
