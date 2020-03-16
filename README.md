@@ -1,5 +1,7 @@
 # FsharpRampart
-F# port of the [Haskell Rampart library](https://github.com/tfausak/rampart) by [Taylor Fausak](https://taylor.fausak.me/2020/03/13/relate-intervals-with-rampart/). 
+.NET port (written in F#) of the [Haskell Rampart library](https://github.com/tfausak/rampart) by [Taylor Fausak](https://taylor.fausak.me/2020/03/13/relate-intervals-with-rampart/). 
+
+![][interval relations]
 
 ## Examples
 
@@ -38,3 +40,5 @@ relate(dt1, dt2);
 invert(Relation.Before);
 //Output: After
 ```
+
+[interval relations]: ./interval-relations.svg
