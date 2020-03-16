@@ -32,8 +32,8 @@ module Interval =
 
     let greater (Interval(_, y)) = y
 
-    type ComparisonResult = | LT | EQ | GT
-    let compare x y = 
+    type private ComparisonResult = | LT | EQ | GT
+    let private compare x y = 
         if x < y then LT
         else if x = y then EQ
         else GT
@@ -44,6 +44,7 @@ module Interval =
         let gxly = compare (greater x) (lesser y)
         let gxgy = compare (greater x) (greater y)
         match (lxly, lxgy, gxly, gxgy) with
+        | (EQ, _, _, EQ) -> Equal
         | (_, _, LT, _) -> Before
         | (_, _, EQ, _) -> Meets
         | (_, EQ, _, _) -> MetBy
@@ -52,7 +53,6 @@ module Interval =
         | (LT, _, _, EQ) -> FinishedBy
         | (LT, _, _, GT) -> Contains
         | (EQ, _, _, LT) -> Starts
-        | (EQ, _, _, EQ) -> Equal
         | (EQ, _, _, GT) -> StartedBy
         | (GT, _, _, LT) -> During
         | (GT, _, _, EQ) -> Finishes

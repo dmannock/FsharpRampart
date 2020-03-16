@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>FsharpRampart</PackageId>
-    <Version>0.1.0</Version>
+    <Version>1.0.2</Version>
     <Authors>Dan Mannock</Authors>
     <Company>Dan Mannock</Company>
     <PackageTags>F#;FSharp;Functional Programming</PackageTags>
