@@ -15,9 +15,6 @@ type Relation =
     | MetBy
     | After
     
-module Relation =
-    let show (r: Relation) = sprintf "%A" r
-
 [<AutoOpen>]
 module Interval =
     type Interval<'a> = private Interval of 'a * 'a
@@ -25,8 +22,6 @@ module Interval =
     let toInterval (x, y) = if x > y then Interval (y, x) else Interval (x, y)
 
     let fromInterval (Interval(x, y)) = x, y
-
-    let show (a: Interval<_>) = sprintf "%A" a
 
     let lesser (Interval(x, _)) = x
 

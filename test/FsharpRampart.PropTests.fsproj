@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+  <AssemblyName>FsharpRampart.PropTests</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="PropTests.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../src/FsharpRampart.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FsCheck" Version="2.14.2" />
+  </ItemGroup>
+
+</Project>
