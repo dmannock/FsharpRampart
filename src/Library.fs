@@ -27,6 +27,10 @@ module Interval =
 
     let greater (Interval(_, y)) = y
 
+    let isEmpty (Interval(x, y)) = x = y
+
+    let isNonEmpty (Interval(x, y)) = x <> y
+
     type private ComparisonResult = | LT | EQ | GT
     let private compare x y = 
         if x < y then LT
@@ -39,19 +43,21 @@ module Interval =
         let gxly = compare (greater x) (lesser y)
         let gxgy = compare (greater x) (greater y)
         match (lxly, lxgy, gxly, gxgy) with
-        | (EQ, _, _, EQ) -> Equal
-        | (_, _, LT, _) -> Before
-        | (_, _, EQ, _) -> Meets
-        | (_, EQ, _, _) -> MetBy
-        | (_, GT, _, _) -> After
-        | (LT, _, _, LT) -> Overlaps
-        | (LT, _, _, EQ) -> FinishedBy
-        | (LT, _, _, GT) -> Contains
-        | (EQ, _, _, LT) -> Starts
-        | (EQ, _, _, GT) -> StartedBy
-        | (GT, _, _, LT) -> During
-        | (GT, _, _, EQ) -> Finishes
-        | (GT, _, _, GT) -> OverlappedBy
+        | (EQ,  _,  _, EQ) -> Equal
+        | ( _,  _, LT,  _) -> Before
+        | (LT,  _, EQ, LT) -> Meets
+        | ( _,  _, EQ,  _) -> Overlaps
+        | (GT, EQ,  _, GT) -> MetBy
+        | ( _, EQ,  _,  _) -> OverlappedBy
+        | ( _, GT,  _,  _) -> After
+        | (LT,  _,  _, LT) -> Overlaps
+        | (LT,  _,  _, EQ) -> FinishedBy
+        | (LT,  _,  _, GT) -> Contains
+        | (EQ,  _,  _, LT) -> Starts
+        | (EQ,  _,  _, GT) -> StartedBy
+        | (GT,  _,  _, LT) -> During
+        | (GT,  _,  _, EQ) -> Finishes
+        | (GT,  _,  _, GT) -> OverlappedBy
 
     let invert = function
         | After -> Before

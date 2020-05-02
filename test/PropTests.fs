@@ -17,6 +17,11 @@ let fromIntervalSameAsReadingLesserAndGreater (x: int) (y: int) =
 
 Check.Quick fromIntervalSameAsReadingLesserAndGreater
 
+let relationWithSameValuesIsEqual (x: int) =
+    toInterval(x, x) |> isEmpty
+
+Check.Quick relationWithSameValuesIsEqual
+
 let relationWithIntervalsOrderSwappedAndInverted<'T when 'T : comparison> (x: 'T, y: 'T) (a: 'T, b: 'T) =
     let interval1 = toInterval(x, y)
     let interval2 = toInterval(a, b)
